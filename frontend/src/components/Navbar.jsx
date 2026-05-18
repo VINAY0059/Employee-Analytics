@@ -1,10 +1,12 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
-import { Users, PlusCircle, BrainCircuit, LogOut } from 'lucide-react';
+import { ThemeContext } from '../context/ThemeContext';
+import { Users, PlusCircle, BrainCircuit, LogOut, Sun, Moon, Monitor } from 'lucide-react';
 
 const Navbar = () => {
   const { user, logout } = useContext(AuthContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -13,14 +15,29 @@ const Navbar = () => {
     navigate('/login');
   };
 
+  const cycleTheme = () => {
+    if (theme === 'system') setTheme('light');
+    else if (theme === 'light') setTheme('dark');
+    else setTheme('system');
+  };
+
+  const renderThemeIcon = () => {
+    if (theme === 'light') return <Sun size={18} />;
+    if (theme === 'dark') return <Moon size={18} />;
+    return <Monitor size={18} />;
+  };
+
   return (
     <nav className="navbar glass">
       <div className="container nav-container">
         <Link to="/" className="nav-brand">
           <BrainCircuit size={28} />
-          <span>EmpAnalytics</span>
+          <span>Employee Analytics</span>
         </Link>
         <div className="nav-links">
+          <button onClick={cycleTheme} className="btn" style={{ background: 'transparent', padding: '0.5rem', color: 'var(--text-secondary)' }} title={`Theme: ${theme}`}>
+            {renderThemeIcon()}
+          </button>
           {user ? (
             <>
               <Link to="/" className={location.pathname === '/' ? 'active' : ''}>
