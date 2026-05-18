@@ -18,14 +18,10 @@ This is a full-stack MERN application that analyzes employee performance data an
 ## How to Run Locally
 
 ### 1. Backend Setup
-1. Navigate to the \`backend\` directory: \`cd backend\`
-2. Install dependencies: \`npm install\`
-3. Set up environment variables in \`.env\`:
-   - \`PORT=5000\`
-   - \`MONGO_URI=mongodb://127.0.0.1:27017/employee-analytics\`
-   - \`JWT_SECRET=your_jwt_secret\`
-   - \`OPENROUTER_API_KEY=your_openrouter_api_key\`
-4. Start the backend server: \`npm run dev\` or \`node server.js\`
+1. Navigate to the \`backend\` directory. 
+2. Install dependencies. 
+3. Set up environment variables. 
+4. Start the backend server.
 
 ### 2. Frontend Setup
 1. Navigate to the \`frontend\` directory: \`cd frontend\`
@@ -40,5 +36,5 @@ This is a full-stack MERN application that analyzes employee performance data an
 ## Deployment (Render)
 To deploy this project to Render:
 1. Push this repository to GitHub.
-2. In Render, create a new "Web Service" for the Backend. Connect your GitHub repo, set the Root Directory to \`backend\`, build command to \`npm install\`, and start command to \`node server.js\`. Add your Environment Variables.
-3. Create a new "Static Site" for the Frontend. Connect your GitHub repo, set the Root Directory to \`frontend\`, build command to \`npm run build\`, and publish directory to \`dist\`.
+2. In Render, create a new "Web Service" for the Backend. Connect your GitHub repo, Add your Environment Variables.
+3. Create a new "Static Site" for the Frontend. 
