@@ -5,6 +5,17 @@ const cors = require('cors');
 
 dotenv.config();
 
+// Guard: fail fast if critical env vars are missing
+if (!process.env.MONGO_URI) {
+  console.error('FATAL: MONGO_URI is not defined in environment variables');
+  process.exit(1);
+}
+
+if (!process.env.JWT_SECRET) {
+  console.error('FATAL: JWT_SECRET is not defined in environment variables');
+  process.exit(1);
+}
+
 const app = express();
 
 // Middleware
@@ -28,4 +39,7 @@ mongoose.connect(process.env.MONGO_URI)
       console.log(`Server running on port ${PORT}`);
     });
   })
-  .catch((err) => console.log('MongoDB connection error:', err));
+  .catch((err) => {
+    console.error('MongoDB connection error:', err.message);
+    process.exit(1);
+  });
