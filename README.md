@@ -33,7 +33,6 @@ This is a full-stack MERN application that analyzes employee performance data an
 3. Start the Vite development server: \`npm run dev\`
 
 ### 3. Usage
-- Go to \`http://localhost:5173\`
 - Register a new account
 - Login and add employees
 - Go to the "AI Insights" page to generate recommendations based on the stored employee data!
